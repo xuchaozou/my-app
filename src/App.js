@@ -1,24 +1,47 @@
-import logo from './logo.svg';
 import './App.css';
+
+// let name = '邹绪超'
+// let fruits = ['苹果', '西瓜', '橙子']
+// let style ={
+//   color : 'red'
+// }
+// let className = 'header'
+// let dom = fruits.map((item,index) => {
+//   return <div key={index}>{item}</div>
+// })
+
+// function Component(){
+//   return <div onClick={() => {console.log('点击')}}>我是子组件</div>
+// }
+
+// function FatherComponent(){
+//   return (<div>
+//      <Component />
+//       <Component />
+//       <Component />
+//   </div>)
+// }
+
+
+
+let fruits = ['苹果', '西瓜', '橙子']
+let currenIndex = -1
+
+
+function clickItem(index){
+  currenIndex = index
+  console.log(currenIndex)
+  App()
+}
+function RenderFruits(){
+  return (<ul>
+  {fruits.map((item, index) => {return <li style={{color : index == currenIndex ? 'red' : 'hotPink'}} onClick={() => clickItem(index)}  key={index}>{item}</li>})}
+  </ul>)
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RenderFruits />
   );
 }
 
